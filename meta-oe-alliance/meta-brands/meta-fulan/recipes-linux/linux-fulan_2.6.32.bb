@@ -56,6 +56,7 @@ SRC_URI = "git://github.com/Duckbox-Developers/linux-sh4-2.6.32.71.git;protocol=
     file://silence_conv_i2sspdif_warning.patch;patch=1 \
     file://linux-sh4-linux_yaffs2.patch;patch=1 \
     file://linux-sh4-fix-crash-usb-reboot.patch;patch=1 \
+    file://linux-sh4-eDVBSectionReader_stm24_0217.patch;patch=1 \
     file://timeconst_perl5.patch;patch=1 \
     file://linux-sh4-stmmac_stm24_${STM_PATCH_STR}.patch;patch=1 \
     file://linux-sh4-lmb_stm24_${STM_PATCH_STR}.patch;patch=1 \
@@ -86,6 +87,9 @@ KERNEL_IMAGEDEST = "tmp"
 KEEPUIMAGE = "yes"
 PARALLEL_MAKEINST = ""
 
+KERNEL_CONFIG_COMMAND = "oe_runmake -C ${S} O=${B} oldconfig"
+
+
 # bitbake.conf only prepends PARALLEL make in tasks called do_compile, which isn't the case for compile_modules
 # So explicitly enable it for that in here
 EXTRA_OEMAKE_prepend = " ${PARALLEL_MAKE} "
@@ -94,8 +98,6 @@ PACKAGES =+ "kernel-headers"
 FILES_kernel-headers = "${exec_prefix}/src/linux*"
 FILES_${KERNEL_PACKAGE_NAME}-dev += "${includedir}/linux"
 FILES_${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}"
-
-KERNEL_CONFIG_COMMAND = "oe_runmake -C ${S} O=${B} oldconfig"
 
 do_configure_prepend() {
     oe_machinstall -m 0644 ${WORKDIR}/defconfig ${B}/.config
