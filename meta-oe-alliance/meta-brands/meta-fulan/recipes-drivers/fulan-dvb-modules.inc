@@ -10,13 +10,13 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/COPYING;md5=751419260aa954499f7abaabaa882b
 RDEPENDS_${PN} = "stinit"
 
 KV = "2.6.32.71-stm24-0217"
-SRCREV = "b269c18f195aa97cfdfa970480c43407f8ced533"
+SRCREV = "${AUTOREV}"
 
 inherit module
 
 PACKAGES = "${PN} ${PN}-dev"
 
-INC_PR = "r47"
+INC_PR = "r6"
 PV = "${KV}+${SRCDATE}"
 
 PTI_NP_PATH ?= "/data/pti_np"
@@ -24,18 +24,13 @@ PTI_NP_PATH ?= "/data/pti_np"
 FILESEXTRAPATHS_prepend := "${THISDIR}/fulan-dvb-modules:"
 
 SRC_URI = " \
-    git://github.com/Duckbox-Developers/driver.git;protocol=git \
-    file://aotom_spark_procfs.patch;patch=1 \
-    file://multicom-embx-osinterface-elselock.patch;patch=1 \
-    file://ddbootup \
-    file://sh4booster \
+    git://github.com/BarviX6/driver.git;protocol=git;branch=atv \
     file://modules.conf \
     file://modules-conf.conf \
     file://COPYING \
-    file://Compcache.patch \
 " 
 
-FILES_${PN} = "${sysconfdir}/init.d ${sysconfdir}/rcS.d ${sysconfdir}/modules-load.d ${sysconfdir}/modprobe.d"
+FILES_${PN} = "${sysconfdir}/init.d ${sysconfdir}/rcS.d ${sysconfdir}/modules-load.d ${sysconfdir}/modprobe.d /bin /etc"
 FILES = ""
 
 S = "${WORKDIR}/git"
@@ -115,10 +110,14 @@ do_install() {
     install -m 644 ${WORKDIR}/modules-conf.conf ${D}/${sysconfdir}/modprobe.d/_${MACHINE}.conf
     install -d ${D}/${sysconfdir}/init.d
     install -d ${D}/${sysconfdir}/rcS.d
-    install -m 0755 ${WORKDIR}/ddbootup ${D}${sysconfdir}/init.d
-    ln -sf ../init.d/ddbootup ${D}${sysconfdir}/rcS.d/S04ddbootup
-	install -m 0755 ${WORKDIR}/sh4booster ${D}${sysconfdir}/init.d
-	ln -sf ../init.d/sh4booster ${D}${sysconfdir}/rcS.d/S05sh4booster
+    install -m 0755 ${S}/ddbootup ${D}${sysconfdir}/init.d
+    ln -sf ../init.d/ddbootup ${D}${sysconfdir}/rcS.d/S01ddbootup
+    install -d ${D}/bin
+    install -m 755 ${S}/vdstandby ${D}/bin
+    install -d ${D}${sysconfdir}
+    install -m 644 ${S}/vdstandby.cfg ${D}${sysconfdir}
+    install -m 0755 ${S}/sh4booster ${D}${sysconfdir}/init.d
+    ln -sf ../init.d/sh4booster ${D}${sysconfdir}/rcS.d/S05sh4booster
 
     # if no pti_np sources are available and a custom pti.ko is present, overwrite the tdt one
     if [ ! -e ${PTI_NP_PATH}/Makefile ]; then
