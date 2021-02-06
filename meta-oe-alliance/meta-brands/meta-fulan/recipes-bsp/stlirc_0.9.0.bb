@@ -6,13 +6,10 @@ SECTION = "console/network"
 PRIORITY = "optional"
 HOMEPAGE = "http://www.lirc.org"
 LICENSE = "GPLv2"
-<<<<<<< HEAD:meta-oe-alliance/meta-brands/meta-fulan/recipes-bsp/stlirc_0.9.0.bb
+
 DEPENDS = "virtual/kernel libusb-compat"
-=======
-DEPENDS = "virtual/kernel"
 RDEPENDS_lirc-exec = "stlirc"
 RRECOMMENDS_${PN} = "stlirc-exec kernel-module-uinput"
->>>>>>> 69e39ab1d... Taapat stlirk:meta-brands/meta-fulan/recipes-bsp/stlirc_0.9.0.bb
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RCONFLICTS_${PN} = "lirc"
@@ -22,23 +19,6 @@ RREPLACES_${PN} = "lirc"
 RREPLACES_stlirc-exec = "lirc-exec"
 RREPLACES_stlirc-remotes = "lirc-remotes"
 
-<<<<<<< HEAD:meta-oe-alliance/meta-brands/meta-fulan/recipes-bsp/stlirc_0.9.0.bb
-PR = "r9"
-
-SRC_URI = "https://downloads.sourceforge.net/project/lirc/LIRC/0.9.0/lirc-${PV}.tar.bz2 \
-    file://lirc-0.9.0-neutrino-uinput-hack.diff;patch=1 \
-    file://lirc-0.9.0-try_first_last_remote.diff;patch=1 \
-    file://lirc-0.9.0-uinput-repeat-fix.diff;patch=1 \
-    file://fix-libusb-config.patch;patch=1 \
-    file://fix_irrecord_deps.patch;patch=1 \
-    file://lirc-0.9.0-repeat_and_delay_hack.patch \
-    file://lirc-0.9.0-rename_input_device.patch \
-    file://lircd.init \
-    file://lircd_amiko8900.conf \
-    file://lircd_amikoalien.conf \
-    file://lircd_spark.conf \
-"
-=======
 SRC_URI = "https://sourceforge.net/projects/lirc/files/LIRC/0.9.0/lirc-${PV}.tar.bz2 \
            file://fix-libusb-config.patch \
            file://${PN}.patch \
@@ -53,7 +33,6 @@ SRC_URI = "https://sourceforge.net/projects/lirc/files/LIRC/0.9.0/lirc-${PV}.tar
            file://lircexec.init \
            file://fix_irrecord_deps.patch;patch=1 \
           "
->>>>>>> 69e39ab1d... Taapat stlirk:meta-brands/meta-fulan/recipes-bsp/stlirc_0.9.0.bb
 SRC_URI[md5sum] = "b232aef26f23fe33ea8305d276637086"
 SRC_URI[sha256sum] = "6323afae6ad498d4369675f77ec3dbb680fe661bea586aa296e67f2e2daba4ff"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
