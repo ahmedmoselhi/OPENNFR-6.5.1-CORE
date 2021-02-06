@@ -25,7 +25,6 @@ ${@bb.utils.contains('MACHINEBUILD', 'dynaspark', 'SPARK' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'dynasparkplus', 'SPARK Plus HDPVR' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'dynaspark7162', 'SPARK 7162' , '', d)}\
 "
-
 MACHINE_BRAND = "\
 ${@bb.utils.contains('MACHINEBUILD', 'amiko8900', 'Amiko' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'amikomini', 'Amiko' , '', d)}\
@@ -48,7 +47,6 @@ ${@bb.utils.contains('MACHINEBUILD', 'dynaspark', 'Dynavision' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'dynasparkplus', 'Dynavision' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'dynaspark7162', 'Dynavision' , '', d)}\
 "
-
 IMAGEDIR ?= "\
 ${@bb.utils.contains('MACHINEBUILD', 'amiko8900', 'enigma2' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'amikomini', 'enigma2' , '', d)}\
@@ -71,7 +69,6 @@ ${@bb.utils.contains('MACHINEBUILD', 'dynaspark', 'enigma2' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'dynasparkplus', 'enigma2' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'dynaspark7162', 'enigma2' , '', d)}\
 "
-
 MTD_KERNEL = "\
 ${@bb.utils.contains('MACHINEBUILD', 'amiko8900', 'mtd5' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'amikomini', 'mtd5' , '', d)}\
@@ -148,7 +145,6 @@ SERIAL_CONSOLE = "115200 ttyAS0"
 DVBPROVIDER = "kernel"
 
 MACHINE_FEATURES = "3dtv alsa switchoff kernel26 ext2 usbhost serial dvb-c singlecore no-cl-svr textlcd sh4booster no-nmap omb skins1080 directfb HDMI legacykernel hdmicec \
-
 ${@bb.utils.contains('MACHINEBUILD', 'amiko8900', 'SCART RCA' , '', d)} \
 ${@bb.utils.contains('MACHINEBUILD', 'sognorevolution', 'SCART RCA' , '', d)} \
 ${@bb.utils.contains('MACHINEBUILD', 'arguspingulux', 'RCA' , '', d)} \
