@@ -19,8 +19,6 @@ RDEPENDS_${PN} = "\
 	opennfr-enigma2 \
 	opennfr-bootlogo \
 	opennfr-version-info \
-	opennfr-cam \
-	opennfr-settings \
 	openssh-sftp-server \
 	${@bb.utils.contains("PYTHON_PN", "python", "${PYTHON_PN}-imaging", "${PYTHON_PN}-pillow", d)} \
 	${PYTHON_PN}-cfscrape \
