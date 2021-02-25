@@ -35,6 +35,8 @@ RRECOMMENDS_${PN} = " \
 	${@bb.utils.contains("MACHINE_FEATURES", "webkithbbtv", "enigma2-plugin-extensions-webkithbbtv", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "chromiumos", "enigma2-plugin-extensions-chromium", "", d)} \ 
 	${@bb.utils.contains("TARGET_ARCH", "arm", "glibc-compat", "", d)} \
+         \
+	nfr4xmultiboot \
 	"
 
 GST_BASE_DVD = "\

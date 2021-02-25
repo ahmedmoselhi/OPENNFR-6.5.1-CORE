@@ -13,6 +13,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 RDEPENDS_${PN} = "\
+    astra-sm \
     ca-certificates \
     ${@bb.utils.contains_any("FLASHSIZE", "64 96 128", "", \
     " \
@@ -48,4 +49,5 @@ RDEPENDS_${PN} = "\
     ", d)} \
     packagegroup-base-smbfs-client \
     ofgwrite \
+    ${@bb.utils.contains_any("MACHINE_FEATURES", "kodi18 kodi19", "kodi-addons-meta enigma2-plugin-extensions-kodi", "", d)} \
     "

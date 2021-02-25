@@ -30,6 +30,7 @@ RRECOMMENDS_${PN} = "\
     enigma2-plugin-systemplugins-osdpositionsetup \
     enigma2-plugin-systemplugins-positionersetup \
     enigma2-plugin-systemplugins-skinselector \
+    enigma2-plugin-systemplugins-softcamstartup \
     enigma2-plugin-systemplugins-softwaremanager \
     enigma2-plugin-systemplugins-swapmanager \
     enigma2-plugin-systemplugins-videomode \
