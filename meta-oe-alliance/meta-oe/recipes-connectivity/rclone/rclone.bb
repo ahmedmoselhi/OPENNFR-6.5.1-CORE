@@ -21,7 +21,6 @@ PV = "1.54-DEV+git${SRCPV}"
 GO_IMPORT = "github.com/rclone/rclone"
 
 SRC_URI = "git://${GO_IMPORT};protocol=https;branch=master \
-           file://0001-Revert-lib-add-plugin-support.patch \
            file://rclonefs"
 
 inherit go-mod upx-compress

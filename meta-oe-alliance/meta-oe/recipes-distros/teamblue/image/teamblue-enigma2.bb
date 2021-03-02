@@ -22,7 +22,6 @@ RRECOMMENDS_${PN} = "\
     enigma2-plugin-extensions-epgrefresh \
     enigma2-plugin-extensions-graphmultiepg \
     enigma2-plugin-extensions-mediaplayer \
-    enigma2-plugin-extensions-moviemanager \
     enigma2-plugin-extensions-zaphistorybrowser \
     enigma2-plugin-systemplugins-gbaspectratioswitch \
     enigma2-plugin-systemplugins-autoresolution \

@@ -29,7 +29,6 @@ RRECOMMENDS_${PN} = "\
     enigma2-plugin-skins-teambluehd \
     enigma2-plugin-skins-pli-hd \
     enigma2-plugin-systemplugins-autobouquetsmaker \
-    enigma2-skins \
     libbluray \
     libudfread \
     monit \
